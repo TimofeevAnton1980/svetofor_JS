@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.main {
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: center;
+			align-items: center;
+			width: 300px;
+    		height: 300px;
+   			border: 1px solid black;
+    		margin: auto;
+		}
+		.red_active {
+			border: 1px solid red;
+			background-color: red;
+		}
+		.yellow_active {
+			border: 1px solid yellow;
+			background-color: yellow;
+		}
+		.green_active {
+			border: 1px solid green;
+			background-color: green;
+		}
+		.all {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+		}
+		.all:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+	<main class="main">
+	<div class="red all"></div>
+	<div class="yellow all"></div>
+	<div class="green all"></div>
+	</main>
+	<script type="text/javascript">
+		const red = document.querySelector('.red');
+		const yellow = document.querySelector('.yellow');
+		const green = document.querySelector('.green');
+		function all() {
+			yellow.classList.remove('yellow_active');
+			green_active();
+			setTimeout(green_miracle, 7000);
+			setTimeout(() => {
+				red_active();
+				setTimeout(red_miracle, 7000);
+				}, 10000);
+			const set = setTimeout(yellow_active, 20000);
+			setTimeout(() => clearTimeout(set), 25000);
+		};
+		all();
+		setInterval(all, 25000);	
+		function green_active() {
+			green.classList.toggle('green_active');
+		}
+		function green_miracle() {
+			const set = setInterval(green_active, 100);
+			setTimeout(() => {
+				clearInterval(set);
+				green.classList.remove('green_active')
+			}, 3000);	
+		}
+		function red_active() {
+			red.classList.toggle('red_active');
+		}
+		function red_miracle() {
+			const set = setInterval(red_active, 100);
+			setTimeout(() => {
+				clearInterval(set);
+				red.classList.remove('red_active');
+			}, 3000);
+		}
+		function yellow_active() {
+			yellow.classList.toggle('yellow_active');
+			red.classList.toggle('red_active');				
+		}
+	</script>
+</body>
+</html>
